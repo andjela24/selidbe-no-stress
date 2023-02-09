@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { faStar, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -22,9 +23,21 @@ export class NavbarComponent implements OnInit {
     this.prevScrollPos = currentScrollPos;
     this.visible = isVisible;
   }
+  scrollTo(id: string) {
+    console.log(`scrolling to ${id}`);
+    let el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }
+  }
   handlePhoneClick() {
     window.open('tel:060123456', '_blank');
   }
-  faStar = faStar;
-  faCheckCircle = faCheckCircle;
+  faFacebookF = faFacebookF;
+  faInstagram = faInstagram;
+  faPhone = faPhone;
 }

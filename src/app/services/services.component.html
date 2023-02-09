@@ -1,15 +1,16 @@
-<section class="services">
-    <h1 class="component-title">Dodatne usluge</h1>
+<section class="services" id="services">
+    <h1 class="component-title">Osnovne usluge</h1>
+    <p>Vršimo usluge selidbe i transporta kombi vozilom na teritoriji Beograda, Srbije i inostranstva.</p>
     <div class="row">
-        <div class="column" *ngFor="let additionalCard of additionalCards">
+        <div class="column" *ngFor="let card of cards">
             <div class="single-service">
                 <div class="card">
                     <div class="service-thumb">
-                        <img [src]="additionalCard.imgUrl" alt="usluge" />
+                        <img [src]="card.imgUrl" alt="usluge">
                     </div>
                     <div class="service-content">
-                        <h3>{{ additionalCard.title }}</h3>
-                        <p>{{ additionalCard.text }}</p>
+                        <h3>{{ card.title }}</h3>
+                        <p>{{ card.text }}</p>
                     </div>
                 </div>
             </div>

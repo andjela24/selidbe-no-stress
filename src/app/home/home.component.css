@@ -1,0 +1,74 @@
+.home-container {
+    background-image: url("src\assets\images\background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.home-text {
+    color: white;
+    letter-spacing: 5px;
+    font-size: 50px
+}
+
+.home-container-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.home-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
+    background-color: #fff;
+    opacity: 80%;
+    border: 2px solid grey;
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.336);
+    margin-bottom: 5rem;
+}
+
+.icon {
+    color: var(--mainColor);
+    align-self: center;
+    width: 50px;
+    height: 50px;
+    font-size: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.icon-text {
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+}
+
+.home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.home-cta-button {
+    padding: 15px 15px;
+    background-color: var(--mainColor);
+    color: white;
+    border: none;
+    border-radius: 5%;
+    font-size: 2rem;
+    cursor: pointer;
+}

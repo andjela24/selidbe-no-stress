@@ -1,1 +1,16 @@
-<p>user-reviews works!</p>
+<div class="reviews-container">
+    <button class="review-buttons" [disabled]="reviewIndex === 0" (click)="prevReviews()">
+        <fa-icon [icon]="faAngleLeft"></fa-icon>
+    </button>
+    <div class="reviews">
+        <div class="review-card" *ngFor="let review of visibleReviews; let i = index">
+            <span *ngFor="let star of [1, 2, 3, 4, 5]; let j = index">
+                <fa-icon [icon]="faAngleRight" [ngStyle]="{ color: j < review.rating ? 'orange' : 'gray' }"></fa-icon>
+            </span>
+            <p>{{ review.comment }}</p>
+        </div>
+    </div>
+    <button class="review-buttons" [disabled]="reviewIndex + 3 >= reviews.length" (click)="nextReviews()">
+        <fa-icon [icon]="faAngleRight"></fa-icon>
+    </button>
+</div>

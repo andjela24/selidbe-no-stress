@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="home-container" id="home">
+    <h1 class="home-text">Selidbe NO STRESS</h1>
+    <div class="home-container-icons">
+        <div class="home-icons">
+            <fa-icon [icon]="faTruck" class="icon"></fa-icon>
+            <p class="icon-text">Bezbedan transport</p>
+        </div>
+
+        <div class="home-icons">
+            <fa-icon [icon]="faClock" class="icon"></fa-icon>
+            <p class="icon-text">Brz dolazak</p>
+        </div>
+
+        <div class="home-icons">
+            <p>Bice neka ikonica</p>
+            <p class="icon-text">Besplatna procena</p>
+        </div>
+        <div class="home-icons">
+            <fa-icon [icon]="faPiggyBank" class="icon"></fa-icon>
+            <p class="icon-text">Povoljna cena</p>
+        </div>
+    </div>
+    <div class="home-button">
+        <a [routerLink]="['/destination-component']">
+            <button class="home-cta-button">Zakažite selidbu</button>
+        </a>
+    </div>
+</div>
