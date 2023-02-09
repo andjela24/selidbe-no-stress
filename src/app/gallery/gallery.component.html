@@ -1,1 +1,5 @@
-<p>gallery works!</p>
+<div class="carousel">
+    <button class="carousel-button" (click)="handlePrev()">&#10094;</button>
+    <img [src]="images[currentIndex]" alt="Gallery">
+    <button class="carousel-button" (click)="handleNext()">&#10095;</button>
+</div>

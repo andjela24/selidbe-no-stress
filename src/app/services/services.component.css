@@ -1,0 +1,155 @@
+.services {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+    display: grid;
+    place-items: center;
+}
+
+.component-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--mainColor);
+}
+
+.row {
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.column {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.single-service {
+    width: 450px;
+    height: 450px;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 5%);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.service-thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-thumb img {
+    width: 450px;
+    vertical-align: middle;
+    transition: .3s;
+}
+
+.service-content {
+    padding: 25px;
+}
+
+.service-content h3 {
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+@media screen and (max-width:1100px) {
+    .row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .single-service {
+        width: 500px;
+    }
+
+    .column {
+        padding-bottom: 2rem;
+    }
+
+    .service-thumb img {
+        width: 500px;
+    }
+
+    .service-content {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width:560px) {
+    .single-service {
+        width: 450px;
+    }
+
+    .service-thumb img {
+        width: 450px;
+    }
+
+    .column {
+        padding-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width:483px) {
+    .service-content h3 {
+        font-size: 35px;
+    }
+
+    .single-service {
+        width: 400px;
+    }
+
+    .service-thumb img {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .single-service {
+        width: 350px;
+    }
+
+    .service-thumb img {
+        width: 350px;
+    }
+
+    .column {
+        padding-left: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+@media screen and (max-width:383px) {
+    .service-content h3 {
+        font-size: 14px;
+    }
+
+    .single-service {
+        width: 300px;
+    }
+
+    .service-thumb img {
+        width: 300px;
+    }
+
+    .column {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width:321px) {
+    .single-service {
+        width: 270px;
+    }
+
+    .service-thumb img {
+        width: 270px;
+    }
+
+    .column {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

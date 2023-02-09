@@ -1,0 +1,67 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.336);
+    font-weight: 500;
+}
+
+.navbar-logo img {
+    width: 100px;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-links a {
+    color: black;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.navbar-links a:hover {
+    color: var(--mainColor);
+}
+
+.navbar-social {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-social a,
+.navbar-social button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.navbar-social a:hover,
+.navbar-social button:hover {
+    color: var(--mainColor);
+}
+
+.component-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--mainColor);
+}

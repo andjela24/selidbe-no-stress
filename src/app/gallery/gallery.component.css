@@ -1,0 +1,27 @@
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 200px;
+    position: relative;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    font-size: 2em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.carousel-button:first-child {
+    left: 0;
+    margin-left: -1em;
+}
+
+.carousel-button:last-child {
+    right: 0;
+    margin-right: -1em;
+}

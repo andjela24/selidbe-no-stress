@@ -1,1 +1,29 @@
-<p>navbar works!</p>
+<header class="navbar" [ngClass]="{'navbar-hidden': !visible}">
+    <nav class="navbar-container">
+        <div class="navbar-logo">
+            <img src="./assets/images/logo.png" alt="Logo" />
+        </div>
+        <div class="navbar-links">
+            <a [routerLink]="['/home']" routerLinkActive="active">Početna</a>
+            <a [routerLink]="['/services']" routerLinkActive="active">Usluge</a>
+            <a [routerLink]="['/prices']" routerLinkActive="active">Cenovnik</a>
+            <a [routerLink]="['/form']" routerLinkActive="active">Online procena</a>
+            <a [routerLink]="['/vehicles']" routerLinkActive="active">Vozila</a>
+            <a [routerLink]="['/gallery']" routerLinkActive="active">Galerija</a>
+            <a [routerLink]="['/about']" routerLinkActive="active">O nama</a>
+        </div>
+        <div class="navbar-social">
+            <a href="https://www.facebook.com/profile.php?id=100064907533298">
+                <i class="fa fa-brands fa-square-facebook"></i>
+                <fa-icon [icon]="faStar"></fa-icon>
+                <fa-icon [icon]="faCheckCircle"></fa-icon>
+            </a>
+            <a href="https://www.instagram.com/selidbe.beeograd/">
+                <i class="fa fa-instagram"></i>
+            </a>
+            <button class="navbar-phone" (click)="handlePhoneClick()">
+                <i class="fa-solid fa-phone"></i>
+            </button>
+        </div>
+    </nav>
+</header>

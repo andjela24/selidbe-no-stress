@@ -1,1 +1,18 @@
-<p>services works!</p>
+<section class="services">
+    <h1 class="component-title">Dodatne usluge</h1>
+    <div class="row">
+        <div class="column" *ngFor="let additionalCard of additionalCards">
+            <div class="single-service">
+                <div class="card">
+                    <div class="service-thumb">
+                        <img [src]="additionalCard.imgUrl" alt="usluge" />
+                    </div>
+                    <div class="service-content">
+                        <h3>{{ additionalCard.title }}</h3>
+                        <p>{{ additionalCard.text }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
