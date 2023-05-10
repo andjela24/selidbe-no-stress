@@ -1,1 +1,68 @@
-<p>form works!</p>
+<form *ngIf="!submitted" id="form">
+    <h1>Price Form</h1>
+    <div>
+        <label>Ime:</label>
+        <input type="text" [(ngModel)]="name" required />
+    </div>
+    <div>
+        <label>Broj telefona:</label>
+        <input type="text" [(ngModel)]="phoneNumber" required />
+    </div>
+    <div>
+        <label>Fizicko lice/ Pravno lice:</label>
+        <div>
+            <input type="radio" id="physical" value="Fizicko lice" [(ngModel)]="entityType" required />
+            <label for="physical">Fizicko lice</label>
+        </div>
+        <div>
+            <input type="radio" id="legal" value="Pravno lice" [(ngModel)]="entityType" required />
+            <label for="legal">Pravno lice</label>
+        </div>
+    </div>
+    <div>
+        <label>Usluge:</label>
+        <div
+            *ngFor="let service of ['Selidba', 'Prevoz', 'Montaža/Demontaža', 'Pakovanje', 'Zaštita', 'Selidba ključ u ruke', 'Kurirska usluga', 'Sa našim radnicima', 'Odnošenje starog namestaja', 'Prevoz kabastih stvari']">
+            <input type="checkbox" value="{{ service }}" (change)="toggleService(service)" />
+            <label>{{ service }}</label>
+        </div>
+    </div>
+    <div>
+        <label>Pocetna tacka:</label>
+        <input type="text" [(ngModel)]="startingPoint" required />
+    </div>
+    <div>
+        <label>Krajnja tacka:</label>
+        <input type="text" [(ngModel)]="endPoint" required />
+    </div>
+    <button type="button" (click)="addStop()">+</button>
+    <div *ngFor="let additionalPoint of additionalPoints; let i = index">
+        <label for="additionalPoint{{ i }}">Dodatna tacka C {{ i + 1 }}:</label>
+        <input type="text" id="additionalPoint{{ i }}" [(ngModel)]="additionalPoints[i].point"
+            name="additionalPoints" />
+    </div>
+    <div class="form-group">
+        <label for="lift">Ima lift/Nema lift:</label>
+        <div>
+            <input type="radio" id="hasLift" value="Ima Lift" [(ngModel)]="liftAvailable" />
+            <label for="hasLift">Ima lift</label>
+        </div>
+        <div>
+            <input type="radio" id="noLift" value="Nema Lift" [(ngModel)]="liftAvailable" />
+            <label for="noLift">Nema lift</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lift">Prilaz obejktu:</label>
+        <div>
+            <input type="radio" id="accesible" value="Dostupno" [(ngModel)]="liftAvailable" />
+            <label for="Dostupno">Dostupno</label>
+        </div>
+        <div>
+            <input type="radio" id="noLift" value="Nema Lift" [(ngModel)]="liftAvailable" />
+            <label for="noLift">Nema lift</label>
+        </div>
+    </div>
+    <button class="submit-button" [disabled]="!form.valid" (click)="submitForm()">Submit</button>
+
+</form>

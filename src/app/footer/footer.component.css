@@ -1,0 +1,63 @@
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 50px 0;
+}
+
+footer h4 {
+    margin-bottom: 25px;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul.footer-contact li {
+    margin-bottom: 10px;
+}
+
+.footer-contact .icon {
+    margin-right: 10px;
+    color: #fff;
+}
+
+footer ul.list-inline li a {
+    display: inline-block;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #777;
+}
+
+footer ul.list-inline li a:hover {
+    background-color: #555;
+}
+
+footer p.text-center {
+    margin-top: 20px;
+    color: #aaa;
+}
+
+footer hr {
+    border-top: 1px solid #777;
+    border-bottom: none;
+}
+
+/* Dodatni stilovi za linkove */
+footer ul.footer-contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+footer ul.list-unstyled li a {
+    color: #e3873b;
+}
+
+footer ul.list-unstyled li a:hover {
+    text-decoration: underline;
+}

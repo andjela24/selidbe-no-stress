@@ -1,54 +1,57 @@
 <div id="prices">
-    <h1 className="component-title">Cenovnik</h1>
-    <div className="prices-grid">
-        <div className="prices-text-wrapper">
-            <h4>Cena usluge zavisi od nekoliko faktora:</h4>
+    <h1 class="component-title">Cenovnik</h1>
+    <div class="intro-section">
+        <h2>Cena usluge zavisi od</h2>
+    </div>
+
+
+    <div class="expandable-section" [ngClass]="{'expanded': isExpanded}">
+        <div class="section-header" (click)="toggleExpand()">
+            <h2>Cena usluge zavisi od</h2>
+            <i class="fa fa-chevron-down" [ngClass]="{'rotate': isExpanded}"></i>
+        </div>
+        <div class="section-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+        </div>
+    </div>
+    <div class="prices-grid">
+        <div class="prices-text-wrapper">
+            <h4>Cena usluge zavisi od:</h4>
             <ul>
-                <li>Vrsta usluge koja se obavlja</li>
-                <li>Količina i gabarita nameštaja ili robe</li>
-                <li>Broj tura koje se prevoze</li>
-                <li>Broj naših angažoanih radnika</li>
-                <li>Pristupačnost prilaza objektu</li>
-                <li>Da li objekat ima ili nema lift</li>
+                <li>Vrsta usluge</li>
+                <li>Količina nameštaja ili robe</li>
+                <li>Broj tura</li>
+                <li>Broj radnika</li>
+                <li>Pristup objektu</li>
+                <li>Postojanje lifta</li>
             </ul>
+            <p>Besplatna procena vrši se na Vašoj adresi</p>
         </div>
-        <div className="prices-text-wrapper">
-            <p>Bice neka ikonica</p>
-            <h3>Procenu vršimo besplatno dolaskom na Vašu adresu</h3>
-        </div>
-        <div className="prices-text-wrapper">
-            <h4>Cene transporta bez angažovanja radnika:</h4>
+        <div class="prices-text-wrapper">
+            <h4>Cene bez angažovanja radnika:</h4>
             <ul>
-                <li>Transport zona 1</li>
-                <li>Transport zona 2</li>
-                <li>Transport po km</li>
+                <li>Zona 1</li>
+                <li>Zona 2</li>
+                <li>Po km</li>
             </ul>
         </div>
     </div>
-    <div className="prices-grid">
-        <div className="prices-image-wrapper">
-            <h3>Transport zona 1</h3>
-            <img className="prices-image" alt="mapa" src="./assets/images/mapa3000.png" />
-            <p>Cena transport za zonu 1 iznosi 3000din.</p>
+    <div class="prices-grid">
+        <div class="prices-image-wrapper">
+            <h3>Zona 1</h3>
+            <img class="prices-image" alt="mapa" src="./assets/images/mapa3000.png" />
+            <p>Cena: 3000 din.</p>
         </div>
-        <div className="prices-image-wrapper">
-            <h3>Transport zona 2</h3>
-            <img className="prices-image" alt="mapa" src="./assets/images/mapa4000.png" />
-            <p>Cena transport za zonu 2 iznosi 4000din.</p>
+        <div class="prices-image-wrapper">
+            <h3>Zona 2</h3>
+            <img class="prices-image" alt="mapa" src="./assets/images/mapa4000.png" />
+            <p>Cena: 4000 din.</p>
         </div>
-        <div className="prices-image-wrapper">
-            <h3>Transport po kilometru</h3>
-            <p>
-                Ukoliko transport prelazi 80km u oba pravca, cena se formira po
-                tarifi 60din po km
-            </p>
-            <p>Primer</p>
-            <p>
-                Ukoliko stvari prevozimo na rastojanju od 45km od početne tačke,
-                cena se formira tako što se 45km pomnoži sa 2, uključujući do tamo i
-                nazad, puta 60din po km.
-            </p>
-            <p>Cena u ovom slučaju bi iznosila 45*2*60 = 5400</p>
+        <div class="prices-image-wrapper">
+            <h3>Po kilometru</h3>
+            <p>Cena: 60 din/km</p>
+            <p>Primer: 45 km x 2 x 60 = 5400 din.</p>
         </div>
     </div>
 </div>

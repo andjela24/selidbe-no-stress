@@ -5,7 +5,7 @@
     <div class="reviews">
         <div class="review-card" *ngFor="let review of visibleReviews; let i = index">
             <span *ngFor="let star of [1, 2, 3, 4, 5]; let j = index">
-                <fa-icon [icon]="faAngleRight" [ngStyle]="{ color: j < review.rating ? 'orange' : 'gray' }"></fa-icon>
+                <fa-icon [icon]="faStar" [ngStyle]="{ color: j < review.rating ? 'orange' : 'gray' }"></fa-icon>
             </span>
             <p>{{ review.comment }}</p>
         </div>

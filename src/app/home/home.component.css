@@ -66,9 +66,18 @@
 .home-cta-button {
     padding: 15px 15px;
     background-color: var(--mainColor);
-    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border: none;
-    border-radius: 5%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    /*border-radius: 5%;*/
     font-size: 2rem;
     cursor: pointer;
+}
+
+.home-cta-button:hover {
+    background-color: #ff8800;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
