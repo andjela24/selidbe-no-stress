@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
     this.prevScrollPos = currentScrollPos;
     this.visible = isVisible;
   }
+
   scrollTo(id: string) {
     console.log(`scrolling to ${id}`);
     let el = document.getElementById(id);
@@ -34,6 +35,16 @@ export class NavbarComponent implements OnInit {
       });
     }
   }
+  /*
+  onWindowScroll() {
+    const currentScrollPos = window.pageYOffset;
+    const maxScroll =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const isVisible = currentScrollPos < maxScroll - 100;
+    this.visible = isVisible;
+  }
+*/
   handlePhoneClick() {
     window.open('tel:060123456', '_blank');
   }

@@ -1,4 +1,4 @@
-<header class="navbar" [ngClass]="{'navbar-hidden': !visible}">
+<!--<header class="navbar" [ngClass]="{'navbar-hidden': !visible}">
     <nav class="navbar-container">
         <div class="navbar-logo">
             <img src="./assets/images/logo.png" alt="Logo" />
@@ -24,4 +24,58 @@
             </button>
         </div>
     </nav>
+</header>
+-->
+<header class="navbar navbar-expand-lg" [ngClass]="{'navbar-hidden': !visible}">
+    <div class="navbar-container">
+        <a class="navbar-brand" href="#">
+            <img src="./assets/images/logo.png" alt="Logo" width="100">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a [routerLink]="['/home']" routerLinkActive="active" (click)="scrollTo('home')">Početna</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/services']" routerLinkActive="active" (click)="scrollTo('services')">Usluge</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/prices']" routerLinkActive="active" (click)="scrollTo('prices')">Cenovnik</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/form']" routerLinkActive="active" (click)="scrollTo('form')">Online procena</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/vehicles']" routerLinkActive="active" (click)="scrollTo('vehicles')">Vozila</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/gallery']" routerLinkActive="active" (click)="scrollTo('gallery')">Galerija</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/about']" routerLinkActive="active" (click)="scrollTo('about')">O nama</a>
+                </li>
+            </ul>
+            <ul class="navbar-social">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/profile.php?id=100064907533298">
+                        <fa-icon [icon]="faFacebookF" class="navbar-icons"></fa-icon>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/selidbe.beeograd/">
+                        <fa-icon [icon]="faInstagram" class="navbar-icons"></fa-icon>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link navbar-phone" (click)="handlePhoneClick()">
+                        <fa-icon [icon]="faPhone" class="navbar-icons"></fa-icon>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
 </header>
