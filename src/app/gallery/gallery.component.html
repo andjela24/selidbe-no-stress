@@ -1,5 +1,133 @@
-<div class="carousel" id="gallery">
+<!--<div class="carousel" id="gallery">
     <button class="carousel-button" (click)="handlePrev()">&#10094;</button>
     <img [src]="images[currentIndex]" alt="Gallery">
     <button class="carousel-button" (click)="handleNext()">&#10095;</button>
 </div>
+-->
+
+<!--
+<div class="carousel" id="gallery">
+    <button class="carousel-button" (click)="handlePrev()">&#10094;</button>
+    <img *ngFor="let image of images.slice(currentIndex, currentIndex + 3)" [src]="image" alt="Gallery">
+    <button class="carousel-button" (click)="handleNext()">&#10095;</button>
+</div>
+-->
+<!--
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let img of images">
+            <img [src]="img" alt="">
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+-->
+
+<!--
+<section id="tranding">
+    <div class="container">
+        <h3 class="text-center section-subheading">- popular Delivery -</h3>
+        <h1 class="text-center section-heading">Tranding food</h1>
+    </div>
+    <div class="container">
+        <div class="swiper tranding-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide tranding-slide" *ngFor="let food of trendingFoods">
+                    <div class="tranding-slide-img">
+                        <img [src]="food.image" alt="{{food.name}}">
+                    </div>
+                    <div class="tranding-slide-content">
+                        <h1 class="food-price">{{food.price}}</h1>
+                        <div class="tranding-slide-content-bottom">
+                            <h2 class="food-name">{{food.name}}</h2>
+                            <h3 class="food-rating">
+                                <span>{{food.rating}}</span>
+                                <div class="rating">
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                </div>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+-->
+<ng-container>
+    <section id="tranding">
+        <div class="container">
+            <h3 class="text-center section-subheading">- popular Delivery -</h3>
+            <h1 class="text-center section-heading">Tranding food</h1>
+        </div>
+        <div class="container">
+            <div class="swiper tranding-slider">
+                <div class="swiper-wrapper">
+                    <!-- Slide-start -->
+                    <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                            <img src="https://picsum.photos/id/30/200/300" alt="Tranding" />
+                        </div>
+                        <div class="tranding-slide-content">
+                            <h1 class="food-price">$20</h1>
+                            <div class="tranding-slide-content-bottom">
+                                <h2 class="food-name">Special Pizza</h2>
+                                <h3 class="food-rating">
+                                    <span>4.5</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide-end -->
+                    <!-- Slide-start -->
+                    <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                            <img src="https://picsum.photos/id/20/200/300" alt="Tranding" />
+                        </div>
+                        <div class="tranding-slide-content">
+                            <h1 class="food-price">$20</h1>
+                            <div class="tranding-slide-content-bottom">
+                                <h2 class="food-name">Meat Ball</h2>
+                                <h3 class="food-rating">
+                                    <span>4.5</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide-end -->
+                    <!-- Slide-start -->
+                    <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                            <img src="https://picsum.photos/id/10/200/300" alt="Tranding" />
+                        </div>
+                        <div class="tranding-slide-content">
+                            <h1 class="food-price">$40</h1>
+                            <div class="tranding-slide-content-bottom">
+                                <h2 class="food-name">Burger</h2>
+                                <h3 class="food-rating">
+                                    <span>4.5</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide-end -->
+                    <!-- Slide-start -->
+                    <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                            <img src="https://picsum.photos/id/40/200/300" alt="Tranding" />
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

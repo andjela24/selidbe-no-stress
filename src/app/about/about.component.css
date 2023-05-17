@@ -72,7 +72,7 @@
     font-size: 40px;
     font-weight: 500;
     color: var(--mainColor);
-    margin: 0 auto;
+    margin: 0 auto 10px;
 }
 
 .dot-line {
@@ -88,21 +88,6 @@ p {
     margin: 0 auto;
 }
 
-/*
-a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: var(--mainColor);
-    margin: 0 auto;
-}
-
-.icon {
-    font-size: 30px;
-    margin-right: 10px;
-}
-*/
 #call-button {
     background-color: #e3873b;
     color: white;
