@@ -1,18 +1,16 @@
+<section id="prices">
 <div class="centered">
     <h1 class="component-title">ONLINE PROCENA CENE</h1>
     <div class="dot-line"></div>
 </div>
 <form *ngIf="!submitted" id="form">
     <div>
-        <label>Ime:</label>
-        <input type="text" [(ngModel)]="name" required />
+        <input type="text" [(ngModel)]="name" placeholder="Ime" required />
     </div>
     <div>
-        <label>Broj telefona:</label>
-        <input type="text" [(ngModel)]="phoneNumber" required />
+        <input type="text" [(ngModel)]="phoneNumber" placeholder="Broj telefona" required />
     </div>
-    <div>
-        <label>Fizicko lice/ Pravno lice:</label>
+    <div class="form-group">
         <!--
         <div>
             <input type="radio" id="physical" value="Fizicko lice" [(ngModel)]="entityType" required />
@@ -30,26 +28,23 @@
 
     </div>
     <div>
-        <label>Usluge:</label>
-        <div
-            *ngFor="let service of ['Selidba', 'Prevoz', 'Montaža/Demontaža', 'Pakovanje', 'Zaštita', 'Selidba ključ u ruke', 'Kurirska usluga', 'Sa našim radnicima', 'Odnošenje starog namestaja', 'Prevoz kabastih stvari']">
+        <label class="sevice-label">Usluge:</label>
+        <div class="checkbox-grid">
+            <div
+            *ngFor="let service of ['Selidba', 'Prevoz', 'Montaža/Demontaža', 'Pakovanje', 'Zaštita', 'Selidba ključ u ruke', 'Kurirska usluga', 'Sa našim radnicima', 'Prevoz kabastih stvari', 'Odnošenje starih stvari']" class="checkbox-item">
             <input type="checkbox" value="{{ service }}" (change)="toggleService(service)" />
             <label>{{ service }}</label>
+            </div>
         </div>
     </div>
-    <div>
-        <label>Pocetna tacka:</label>
-        <input type="text" [(ngModel)]="startingPoint" required />
-    </div>
-    <div>
-        <label>Krajnja tacka:</label>
-        <input type="text" [(ngModel)]="endPoint" required />
-    </div>
-    <button type="button" (click)="addStop()">+</button>
+    <div class="input-grid">
+        <input type="text" [(ngModel)]="startingPoint" placeholder="Početna tačka" required />
+        <button class="add-button" type="button" (click)="addStop()">Dodaj tačku</button>
+        <input type="text" [(ngModel)]="endPoint" placeholder="Krajnja tačka" required />
     <div *ngFor="let additionalPoint of additionalPoints; let i = index">
-        <label for="additionalPoint{{ i }}">Dodatna tacka C {{ i + 1 }}:</label>
         <input type="text" id="additionalPoint{{ i }}" [(ngModel)]="additionalPoints[i].point"
-            name="additionalPoints" />
+            name="additionalPoints" placeholder="Dodatna tačka"/>
+    </div>
     </div>
     <div class="form-group">
         <input type="radio" id="hasLift" value="Ima Lift" [ngModel]="liftAvailable" (ngModelChange)="liftAvailable = $event" name="lift" />
@@ -59,14 +54,16 @@
 
     </div>
     <div class="form-group">
-        <label for="acceess">Prilaz obejktu:</label>
-        <input type="radio" id="accesible" value="Kuca" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
+        <input type="radio" id="home" value="Kuca" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
         <label for="accesible">Kuća</label>
         
-        <input type="radio" id="nonaccesible" value="Stan" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
+        <input type="radio" id="apartment" value="Stan" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
         <label for="nonaccesible">Stan</label>
-        
+
+        <input type="radio" id="office" value="Lokal" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
+        <label for="nonaccesible">Lokal</label>
     </div>
-    <button class="submit-button" [disabled]="!form.valid" (click)="submitForm()">Submit</button>
+    <button class="submit-button" [disabled]="!form.valid" (click)="submitForm()">Pošalji upit</button>
 
 </form>
+</section>
