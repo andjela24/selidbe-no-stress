@@ -1,57 +1,34 @@
-<div id="prices">
-    <h1 class="component-title">Cenovnik</h1>
-    <div class="intro-section">
-        <h2>Cena usluge zavisi od</h2>
+<div id="prices-section">
+    <div class="centered">
+        <h1 class="component-title">CENA SELIDBE</h1>
+        <div class="dot-line"></div>
     </div>
 
-
-    <div class="expandable-section" [ngClass]="{'expanded': isExpanded}">
-        <div class="section-header" (click)="toggleExpand()">
-            <h2>Cena usluge zavisi od</h2>
-            <i class="fa fa-chevron-down" [ngClass]="{'rotate': isExpanded}"></i>
-        </div>
-        <div class="section-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.</p>
-        </div>
-    </div>
-    <div class="prices-grid">
-        <div class="prices-text-wrapper">
-            <h4>Cena usluge zavisi od:</h4>
+    <div class="content-section">
+        <p>Cena selidbe ili prevoza zavisi od nekoliko faktora koji su specifični za vaš slučaj, stoga ne možemo istaći precizan cenovnik na našem sajtu. Međutim, naš tim se trudi da vam pruži najpovoljniju ponudu u skladu sa vašim potrebama.
+            <br><br>
+            Ako se radi o selidbi manjih stanova, nudimo vam jeftine selidbe po povoljnoj ceni. Ukoliko, pak, imate potrebu za selidbom većih stvari, koristimo i veći broj radnika. Bez obzira na veličinu selidbe, možete nam se obratiti i dobiti najpovoljniju ponudu prilagođenu vašim potrebama.
+            <br><br>
+            Postoji nekoliko glavnih faktora koji utiču na cenu selidbe ili transporta:
+            </p>
+            <br>
             <ul>
-                <li>Vrsta usluge</li>
-                <li>Količina nameštaja ili robe</li>
-                <li>Broj tura</li>
-                <li>Broj radnika</li>
-                <li>Pristup objektu</li>
-                <li>Postojanje lifta</li>
+                <li><fa-icon [icon]="faCircleDot" class="icon"></fa-icon> Vrsta usluge</li>
+                <li><fa-icon [icon]="faCircleDot" class="icon"></fa-icon> Količina nameštaja ili robe</li>
+                <li><fa-icon [icon]="faCircleDot" class="icon"></fa-icon> Broj tura</li>
+                <li><fa-icon [icon]="faCircleDot" class="icon"></fa-icon> Broj radnika</li>
+                <li><fa-icon [icon]="faCircleDot" class="icon"></fa-icon> Pristup objektu</li>
+                <li><fa-icon [icon]="faCircleDot" class="icon"></fa-icon> Postojanje lifta</li>
             </ul>
-            <p>Besplatna procena vrši se na Vašoj adresi</p>
-        </div>
-        <div class="prices-text-wrapper">
-            <h4>Cene bez angažovanja radnika:</h4>
-            <ul>
-                <li>Zona 1</li>
-                <li>Zona 2</li>
-                <li>Po km</li>
-            </ul>
-        </div>
+            <br>
+            <p>
+            Kako biste saznali tačnu fiksnu cenu vaše selidbe ili transporta, jednostavno popunit formu na sajtu ili nas pozovite i odgovorite na nekoliko pitanja. Naš tim će pažljivo proceniti vaše potrebe i pružiti vam najpovoljniju ponudu prilagođenu upravo vama.
+            
+            Neka vaša selidba ili transport bude jednostavan i bezbrižan proces. Kontaktirajte nas danas i prepustite nam brigu o svim detaljima.</p>
     </div>
-    <div class="prices-grid">
-        <div class="prices-image-wrapper">
-            <h3>Zona 1</h3>
-            <img class="prices-image" alt="mapa" src="./assets/images/mapa3000.png" />
-            <p>Cena: 3000 din.</p>
-        </div>
-        <div class="prices-image-wrapper">
-            <h3>Zona 2</h3>
-            <img class="prices-image" alt="mapa" src="./assets/images/mapa4000.png" />
-            <p>Cena: 4000 din.</p>
-        </div>
-        <div class="prices-image-wrapper">
-            <h3>Po kilometru</h3>
-            <p>Cena: 60 din/km</p>
-            <p>Primer: 45 km x 2 x 60 = 5400 din.</p>
-        </div>
-    </div>
+    <br>
+    <button id="call-button" (click)="onClick()">
+        <fa-icon [icon]="faPhone" class="icon"></fa-icon>
+        Pozovite nas: +38160123456
+    </button>
 </div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { faPhone, faCircleDot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-prices',
@@ -6,9 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./prices.component.css'],
 })
 export class PricesComponent {
-  isExpanded: boolean = false;
+  faPhone = faPhone;
+  faCircleDot = faCircleDot;
+  constructor() {}
+  
+  @ViewChild('callButton', { static: false }) callButton!: ElementRef;
 
-  toggleExpand() {
-    this.isExpanded = !this.isExpanded;
+  onClick() {
+    window.location.href = 'tel:+38160123456';
   }
 }

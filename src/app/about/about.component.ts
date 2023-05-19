@@ -10,26 +10,7 @@ export class AboutComponent {
   faPhone = faPhone;
 
   constructor() {}
-  /*
-  ngOnInit() {
-    this.callButton = document.querySelector('#call-button');
-    this.callButton.addEventListener('click', () => {
-      window.location.href = 'tel:+38160123456';
-    });
   
-    */
-  /*
-  readonly callButton: HTMLElement | null =
-    document.getElementById('call-button');
-
-  ngOnInit() {
-    if (this.callButton) {
-      this.callButton.addEventListener('click', () => {
-        window.location.href = 'tel:+38160123456';
-      });
-    }
-  }
-  */
   @ViewChild('callButton', { static: false }) callButton!: ElementRef;
 
   onClick() {

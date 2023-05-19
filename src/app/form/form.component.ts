@@ -17,6 +17,7 @@ export class FormComponent implements OnInit {
   /*public additionalPoints: Array<string> = [];*/
   public services: Array<string> = [];
   public liftAvailable: string = '';
+  public accessibility: string = '';
   public numOfStops: number = 0;
   public submitted: boolean = false;
 
@@ -31,6 +32,7 @@ export class FormComponent implements OnInit {
       endPoint: ['', Validators.required],
       services: [[]],
       liftAvailable: ['', Validators.required],
+      accessibility: ['', Validators.required],
     });
   }
 
@@ -63,6 +65,7 @@ export class FormComponent implements OnInit {
       entityType: this.entityType,
       additionalStops: this.additionalPoints,
       liftAvailable: this.liftAvailable,
+      accessibility: this.accessibility,
       numOfStops: this.numOfStops,
     });
   }
