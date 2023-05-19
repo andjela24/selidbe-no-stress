@@ -11,16 +11,6 @@
         <input type="text" [(ngModel)]="phoneNumber" placeholder="Broj telefona" required />
     </div>
     <div class="form-group">
-        <!--
-        <div>
-            <input type="radio" id="physical" value="Fizicko lice" [(ngModel)]="entityType" required />
-            <label for="physical">Fizicko lice</label>
-        </div>
-        <div>
-            <input type="radio" id="legal" value="Pravno lice" [(ngModel)]="entityType" required />
-            <label for="legal">Pravno lice</label>
-        </div>
-    -->
     <input type="radio" id="physical" value="Fizicko lice" [ngModel]="entityType" (ngModelChange)="entityType = $event" name="entityType" required />
 <label for="physical">Fizicko lice</label>
 <input type="radio" id="legal" value="Pravno lice" [ngModel]="entityType" (ngModelChange)="entityType = $event" name="entityType" required />
