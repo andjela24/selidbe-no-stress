@@ -264,9 +264,9 @@ SwiperCore.use([EffectCards]);
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss'],
+  styleUrls: ['./gallery.component.css'],
 })
-export class SwiperGalleryComponent {
+export class GalleryComponent {
   slides: string[] = [
     'Slide 1',
     'Slide 2',
