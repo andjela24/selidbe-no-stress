@@ -1,20 +1,23 @@
-<section id="prices">
+<section id="form">
 <div class="centered">
     <h1 class="component-title">ONLINE PROCENA CENE</h1>
     <div class="dot-line"></div>
 </div>
 <form *ngIf="!submitted" id="form">
     <div>
-        <input type="text" [(ngModel)]="name" placeholder="Ime" required />
+        <input type="text" [(ngModel)]="name" placeholder="Ime" name="name" required autocomplete="username"/>
     </div>
     <div>
-        <input type="text" [(ngModel)]="phoneNumber" placeholder="Broj telefona" required />
+        <input type="text" [(ngModel)]="phoneNumber" placeholder="Broj telefona" name="phoneNumber" required />
     </div>
+
     <div class="form-group">
+
     <input type="radio" id="physical" value="Fizicko lice" [ngModel]="entityType" (ngModelChange)="entityType = $event" name="entityType" required />
-<label for="physical">Fizicko lice</label>
-<input type="radio" id="legal" value="Pravno lice" [ngModel]="entityType" (ngModelChange)="entityType = $event" name="entityType" required />
-<label for="legal">Pravno lice</label>
+    <label for="physical">Fizicko lice</label>
+
+    <input type="radio" id="legal" value="Pravno lice" [ngModel]="entityType" (ngModelChange)="entityType = $event" name="entityType" required />
+    <label for="legal">Pravno lice</label>
 
     </div>
     <div>
@@ -28,31 +31,36 @@
         </div>
     </div>
     <div class="input-grid">
-        <input type="text" [(ngModel)]="startingPoint" placeholder="Početna tačka" required />
+        <input type="text" [(ngModel)]="startingPoint" placeholder="Početna tačka" name="startingPoint" required />
         <button class="add-button" type="button" (click)="addStop()">Dodaj tačku</button>
-        <input type="text" [(ngModel)]="endPoint" placeholder="Krajnja tačka" required />
+        <input type="text" [(ngModel)]="endPoint" placeholder="Krajnja tačka" name="endPoint"required />
     <div *ngFor="let additionalPoint of additionalPoints; let i = index">
         <input type="text" id="additionalPoint{{ i }}" [(ngModel)]="additionalPoints[i].point"
             name="additionalPoints" placeholder="Dodatna tačka"/>
     </div>
     </div>
     <div class="form-group">
+
         <input type="radio" id="hasLift" value="Ima Lift" [ngModel]="liftAvailable" (ngModelChange)="liftAvailable = $event" name="lift" />
         <label for="hasLift">Ima lift</label>
+
         <input type="radio" id="noLift" value="Nema Lift" [ngModel]="liftAvailable" (ngModelChange)="liftAvailable = $event" name="lift" />
-<label for="noLift">Nema lift</label>
+        <label for="noLift">Nema lift</label>
 
     </div>
+
     <div class="form-group">
-        <input type="radio" id="home" value="Kuca" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
-        <label for="accesible">Kuća</label>
+
+        <input type="radio" id="house" value="Kuca" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
+        <label for="house">Kuća</label>
         
         <input type="radio" id="apartment" value="Stan" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
-        <label for="nonaccesible">Stan</label>
+        <label for="apartment">Stan</label>
 
         <input type="radio" id="office" value="Lokal" [ngModel]="accessibility" (ngModelChange)="accessibility = $event" name="accessibility" />
-        <label for="nonaccesible">Lokal</label>
+        <label for="office">Lokal</label>
     </div>
+
     <button class="submit-button" [disabled]="!form.valid" (click)="submitForm()">Pošalji upit</button>
 
 </form>

@@ -22,7 +22,26 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
-
+.card{
+    width: 450px;
+    height: 450px;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 5%);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.card-img-top{
+    position: relative;
+    overflow: hidden;
+}
+.card-img-top img{
+    width: 450px;
+    vertical-align: middle;
+    transition: .3s;
+}
+.card-text{
+    padding: 25px;
+}
 .single-service {
     width: 450px;
     height: 450px;

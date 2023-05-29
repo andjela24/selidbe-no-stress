@@ -1,12 +1,5 @@
-/*
-#prices-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px;
-}
-*/
-#prices-section{
+
+#prices{
     display: flex;
     flex-direction: column;
     max-width: 800px;
@@ -61,7 +54,9 @@ ul {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
+#call-button:hover{
+    background-color: #c26e33;
+}
 #call-button .icon {
     margin-right: 10px;
     color: white;
