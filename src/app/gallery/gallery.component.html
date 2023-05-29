@@ -61,6 +61,8 @@
     </div>
 </section>
 -->
+
+<!--
 <ng-container>
     <section id="tranding">
         <div class="container">
@@ -70,7 +72,7 @@
         <div class="container">
             <div class="swiper tranding-slider">
                 <div class="swiper-wrapper">
-                    <!-- Slide-start -->
+
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
                             <img src="https://picsum.photos/id/30/200/300" alt="Tranding" />
@@ -85,8 +87,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Slide-end -->
-                    <!-- Slide-start -->
+
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
                             <img src="https://picsum.photos/id/20/200/300" alt="Tranding" />
@@ -101,8 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Slide-end -->
-                    <!-- Slide-start -->
+
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
                             <img src="https://picsum.photos/id/10/200/300" alt="Tranding" />
@@ -117,13 +117,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Slide-end -->
-                    <!-- Slide-start -->
+
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
                             <img src="https://picsum.photos/id/40/200/300" alt="Tranding" />
                         </div>
-                        <!-- Add Pagination -->
+
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
@@ -131,3 +130,17 @@
         </div>
     </section>
 </ng-container>
+-->
+<section id="gallery">
+    <swiper
+    [effect]="'cards'"
+    [grabCursor]="true"
+    [modules]="[EffectCards]"
+    class="mySwiper"
+  >
+    <ng-container *ngFor="let slide of slides">
+      <div class="swiper-slide">{{ slide }}</div>
+    </ng-container>
+  </swiper>
+  
+</section>

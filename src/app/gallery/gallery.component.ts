@@ -205,8 +205,10 @@ export class GalleryComponent {
   */
 /*}*/
 
+/*
 import { Component, OnInit } from '@angular/core';
 import Swiper from 'swiper';
+
 
 @Component({
   selector: 'app-gallery',
@@ -247,4 +249,39 @@ export class GalleryComponent implements OnInit {
       },
     });
   }
+}
+*/
+import { Component } from '@angular/core';
+import SwiperCore, { EffectCards } from 'swiper';
+import { SwiperOptions } from 'swiper/types';
+
+// Import Swiper styles
+import 'swiper/swiper.scss';
+import 'swiper/components/effect-cards/effect-cards.scss';
+
+SwiperCore.use([EffectCards]);
+
+@Component({
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.scss'],
+})
+export class SwiperGalleryComponent {
+  slides: string[] = [
+    'Slide 1',
+    'Slide 2',
+    'Slide 3',
+    'Slide 4',
+    'Slide 5',
+    'Slide 6',
+    'Slide 7',
+    'Slide 8',
+    'Slide 9',
+  ];
+
+  swiperConfig: SwiperOptions = {
+    effect: 'cards',
+    grabCursor: true,
+    modules: [EffectCards],
+  };
 }
