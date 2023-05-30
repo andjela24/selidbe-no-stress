@@ -39,8 +39,11 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {}
 
   addStop() {
-    this.additionalPoints.push({ point: '' });
+    if (this.additionalPoints.length < 2) {
+      this.additionalPoints.push({ point: '' });
+    }
   }
+  
   toggleService(service: string) {
     if (this.services.includes(service)) {
       this.services = this.services.filter((s) => s !== service);
