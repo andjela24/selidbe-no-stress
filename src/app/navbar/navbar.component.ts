@@ -35,18 +35,9 @@ export class NavbarComponent implements OnInit {
       });
     }
   }
-  /*
-  onWindowScroll() {
-    const currentScrollPos = window.pageYOffset;
-    const maxScroll =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const isVisible = currentScrollPos < maxScroll - 100;
-    this.visible = isVisible;
-  }
-*/
+
   handlePhoneClick() {
-    window.open('tel:060123456', '_blank');
+    window.open('tel:+381677000344', '_blank');
   }
   faFacebookF = faFacebookF;
   faInstagram = faInstagram;
