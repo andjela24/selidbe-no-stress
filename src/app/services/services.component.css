@@ -28,15 +28,8 @@
     margin: 0 auto;
 }
 
-.services-component {
-    padding-top: 4rem;
-    padding-bottom: 1rem;
-    display: grid;
-    place-items: center;
-}
-
 .row {
-    padding-top: 4rem;
+    padding-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;

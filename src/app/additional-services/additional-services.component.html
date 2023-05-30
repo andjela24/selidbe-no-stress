@@ -1,18 +1,38 @@
-<section class="services" id="additional-services">
-    <h1 class="component-title">Dodatne usluge</h1>
+<section id="additional-services">
+    <div class="centered">
+        <h1 class="component-title">DODATNE USLUGE</h1>
+        <div class="dot-line"></div>
+    </div>
     <div class="row">
-        <div class="column" *ngFor="let additionalCard of additionalCards">
-            <div class="single-service">
-                <div class="card">
-                    <div class="service-thumb">
-                        <img [src]="additionalCard.imgUrl" alt="usluge" />
-                    </div>
-                    <div class="service-content">
-                        <h3>{{ additionalCard.title }}</h3>
-                        <p>{{ additionalCard.text }}</p>
-                    </div>
+        <div class="column">
+            <div class="card">
+                <img class="card-img-top" src="./assets/images/cards/montaza-img.webp" alt="Usluga 1">
+                <div class="card-body">
+                    <h5 class="card-title">Montaža / Demontaža</h5>
+                    <p class="card-text">Montiramo i dempntiramo već postojeći ili tek kupljeni nameštaj profesionalnim alatima. *Ne montiramo kuhinje.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="column">
+            <div class="card">
+                <img class="card-img-top" src="./assets/images/cards/zastita-img.webp" alt="Usluga 7">
+                <div class="card-body">
+                    <h5 class="card-title">Zaštita nameštaja</h5>
+                    <p class="card-text">Profesionalna zaštita stvari sreč folijom ili puc-puc folijom</p>
                 </div>
             </div>
         </div>
+        <div class="column">
+
+            <div class="card">
+                <img class="card-img-top" src="./assets/images/cards/pakovanje-img.webp" alt="Usluga 8">
+                <div class="card-body">
+                    <h5 class="card-title">Pakovanje</h5>
+                    <p class="card-text">Vršimo pakovanje u kartonske kutije različitih dimenzija ili džakove različitih veličina</p>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </section>
