@@ -1,4 +1,11 @@
 
+#gallery{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
 .component-title {
     font-size: 40px;
     font-weight: 500;
