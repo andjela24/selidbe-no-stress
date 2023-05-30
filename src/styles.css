@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins&family=Roboto&display=swap');
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import 'swiper/swiper-bundle.css';
+
 
 *,
 *::before,

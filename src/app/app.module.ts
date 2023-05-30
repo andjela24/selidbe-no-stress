@@ -35,7 +35,7 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     UserReviewsComponent,
     VehiclesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule, SwiperModule,],
   providers: [],
   bootstrap: [AppComponent],
 })
