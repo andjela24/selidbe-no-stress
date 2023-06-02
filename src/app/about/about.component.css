@@ -52,3 +52,49 @@ p {
     margin-right: 10px;
     color: white;
 }
+
+/* Stilizacija za telefone */
+@media only screen and (max-width: 767px) {
+    #about-section {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .component-title {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .dot-line {
+        width: 70%;
+    }
+    
+    #call-button {
+        font-size: 16px;
+        padding: 8px 16px;
+        margin-top: 15px;
+    }
+}
+
+/* Stilizacija za tablete */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #about-section {
+        max-width: 600px;
+        margin-bottom: 40px;
+    }
+    
+    .component-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    
+    .dot-line {
+        width: 60%;
+    }
+    
+    #call-button {
+        font-size: 16px;
+        padding: 10px 18px;
+        margin-top: 18px;
+    }
+}

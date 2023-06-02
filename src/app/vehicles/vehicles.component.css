@@ -37,3 +37,46 @@ img {
     width: 100%;
     margin-top: 1rem;
 }
+
+/* Stilizacija za telefone */
+@media only screen and (max-width: 767px) {
+    #vehicles {
+      max-width: 90%;
+    }
+    
+    .dot-line {
+      width: 80%;
+    }
+    
+    p {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    
+    img {
+      width: 90%;
+      margin-top: 1rem;
+    }
+  }
+  
+  /* Stilizacija za tablete */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #vehicles {
+      max-width: 90%;
+    }
+    
+    .dot-line {
+      width: 70%;
+    }
+    
+    p {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+    
+    img {
+      width: 80%;
+      margin-top: 1rem;
+    }
+  }
+  

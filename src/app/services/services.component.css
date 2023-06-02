@@ -60,4 +60,87 @@
     padding: 5px;
 }
 
+/* Stilizacija za telefone */
+@media only screen and (max-width: 767px) {
+    #services {
+      margin-bottom: 30px;
+    }
+    
+    .centered {
+      margin-bottom: 20px;
+    }
+    
+    .component-title {
+      font-size: 30px;
+      margin-bottom: 5px;
+    }
+    
+    .dot-line {
+      width: 40%;
+    }
+    
+    .row {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .column {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
+    .card {
+      width: 100%;
+      height: auto;
+    }
+    
+    .card-img-top img {
+      width: 100%;
+    }
+    
+    .card-title, .card-text {
+      font-size: 16px;
+      padding: 5px;
+    }
+  }
+  
+  /* Stilizacija za tablete */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #services {
+      margin-bottom: 40px;
+    }
+    
+    .centered {
+      margin-bottom: 25px;
+    }
+    
+    .component-title {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+    
+    .dot-line {
+      width: 45%;
+    }
+    
+    .row {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .card {
+      width: 100%;
+      height: auto;
+    }
+    
+    .card-img-top img {
+      width: 100%;
+    }
+    
+    .card-title, .card-text {
+      font-size: 18px;
+      padding: 5px;
+    }
+  }
+  
 

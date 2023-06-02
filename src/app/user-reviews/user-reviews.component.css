@@ -32,3 +32,46 @@
 .review-buttons[disabled] {
     color: white;
 }
+
+/* Stilizacija za telefone */
+@media only screen and (max-width: 767px) {
+    .reviews {
+      flex-wrap: wrap;
+      width: 90%;
+    }
+    
+    .review-card {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Stilizacija za tablete */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .reviews {
+      flex-wrap: wrap;
+      width: 90%;
+    }
+    
+    .review-card {
+      width: 45%;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Stilizacija za mobilne uređaje */
+  .review-card {
+    @media only screen and (max-width: 767px) {
+      box-shadow: none;
+      border: none;
+      padding: 0;
+    }
+  }
+  
+  /* Stilizacija za gumbe recenzija */
+  .review-buttons {
+    @media only screen and (max-width: 767px) {
+      font-size: 1.5em;
+    }
+  }
+  
