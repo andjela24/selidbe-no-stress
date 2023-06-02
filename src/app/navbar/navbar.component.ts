@@ -9,9 +9,9 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   prevScrollPos = window.pageYOffset;
   visible = true;
@@ -36,9 +36,17 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  toggleNavbar() {
+    const navbar = document.getElementById('navbarNav');
+    if (navbar) {
+      navbar.classList.toggle('show');
+    } 
+  }
+
   handlePhoneClick() {
     window.open('tel:+381677000344', '_blank');
   }
+  
   faFacebookF = faFacebookF;
   faInstagram = faInstagram;
   faPhone = faPhone;
