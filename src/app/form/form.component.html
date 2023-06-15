@@ -1,4 +1,5 @@
-<section id="form">
+<!--
+    <section id="form">
     <div class="centered">
         <h1 class="component-title">ONLINE PROCENA CENE</h1>
         <div class="dot-line"></div>
@@ -36,12 +37,6 @@
             <input type="text" [(ngModel)]="startingPoint" placeholder="Početna tačka" name="startingPoint" required />
             <button class="add-button" type="button" (click)="addStop()" *ngIf="additionalPoints.length < 2">Dodaj tačku</button>
             <input type="text" [(ngModel)]="endPoint" placeholder="Krajnja tačka" name="endPoint" required />
-            <!---
-            <div *ngFor="let additionalPoint of additionalPoints; let i = index">
-                <input type="text" id="additionalPoint{{ i }}" [(ngModel)]="additionalPoints[i].point"
-                    name="additionalPoints" placeholder="Dodatna tačka" />
-            </div>
-        -->
         <div *ngFor="let additionalPoint of additionalPoints; let i = index">
             <input type="text" id="additionalPoint{{ i }}" [(ngModel)]="additionalPoints[i].point" name="additionalPoints" placeholder="Dodatna tačka" />
           </div>
@@ -76,4 +71,523 @@
         <button class="submit-button" [disabled]="!form.valid" (click)="submitForm()">Pošalji upit</button>
 
     </form>
+</section>
+-->
+
+<section id="form">
+  <div class="centered">
+    <h1 class="component-title">ONLINE PROCENA CENE</h1>
+    <div class="dot-line"></div>
+  </div>
+  <form *ngIf="!form.get('submitted')?.value" id="form" (ngSubmit)="submitForm()" [formGroup]="form">
+    <div>
+      <input type="text" formControlName="name" placeholder="Ime" required autocomplete="username" />
+    </div>
+    <div>
+      <input type="text" formControlName="phoneNumber" placeholder="Broj telefona" required />
+    </div>
+
+    <div class="form-group">
+      <input type="radio" id="physical" value="Fizicko lice" formControlName="entityType" required />
+      <label for="physical">Fizicko lice</label>
+
+      <input type="radio" id="legal" value="Pravno lice" formControlName="entityType" required />
+      <label for="legal">Pravno lice</label>
+    </div>
+<!--
+  <label>Usluge:</label>
+  <div class="checkbox-grid">
+    <div class="checkbox-item">
+      <input type="checkbox" value="Selidba" (change)="toggleService('Selidba')" [checked]="selectedOptions.includes('Selidba')" />
+      <label>Selidba</label>
+    </div>
+    <div *ngIf="selectedOptions.includes('Selidba')">
+      <div class="checkbox-item">
+        <input type="checkbox" value="Namestaj" (change)="toggleService('Namestaj')" [checked]="selectedOptions.includes('Namestaj')" />
+        <label>Namestaj</label>
+        <div *ngIf="selectedOptions.includes('Namestaj')">
+          <textarea placeholder="Unesite šta treba seliti od nameštaja" [(ngModel)]="furnitureDescription"></textarea>
+          <input type="file" (change)="uploadImages($event)" />
+        </div>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" value="Pokucstvo" (change)="toggleService('Pokucstvo')" [checked]="selectedOptions.includes('Pokucstvo')" />
+        <label>Pokucstvo</label>
+        <div *ngIf="selectedOptions.includes('Pokucstvo')">
+          <div>
+            <label>Broj kutija:</label>
+            <input type="number" />
+          </div>
+          <div>
+            <label>Broj kesa:</label>
+            <input type="number" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngFor="let service of options">
+      <div class="checkbox-item" *ngIf="service !== 'Selidba' && service !== 'Namestaj' && service !== 'Pokucstvo'">
+        <input type="checkbox" [value]="service" (change)="toggleService(service)" [checked]="selectedOptions.includes(service)" />
+        <label>{{ service }}</label>
+      </div>
+    </ng-container>
+  </div>
+-->
+<!--
+<label>Usluge:</label>
+<div class="checkbox-grid">
+  <div class="checkbox-item">
+    <input type="checkbox" value="Selidba" (change)="toggleService('Selidba')" [checked]="selectedOptions.includes('Selidba')" />
+    <label>Selidba</label>
+  </div>
+  <div *ngIf="selectedOptions.includes('Selidba')">
+    <div class="checkbox-item">
+      <input type="checkbox" value="Namestaj" (change)="toggleService('Namestaj')" [checked]="selectedOptions.includes('Namestaj')" />
+      <label>Namestaj</label>
+      <div *ngIf="selectedOptions.includes('Namestaj')">
+        <textarea placeholder="Unesite šta treba seliti od nameštaja" [(ngModel)]="furnitureDescription"></textarea>
+        <input type="file" (change)="uploadImages($event)" />
+      </div>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" value="Pokucstvo" (change)="toggleService('Pokucstvo')" [checked]="selectedOptions.includes('Pokucstvo')" />
+      <label>Pokucstvo</label>
+      <div *ngIf="selectedOptions.includes('Pokucstvo')">
+        <div>
+          <label>Broj kutija:</label>
+          <input type="number" [(ngModel)]="numberOfBoxes" />
+        </div>
+        <div>
+          <label>Broj kesa:</label>
+          <input type="number" [(ngModel)]="numberOfBags" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Prevoz" (change)="toggleService('Prevoz')" [checked]="selectedOptions.includes('Prevoz')" />
+    <label>Prevoz</label>
+    <div *ngIf="selectedOptions.includes('Prevoz')">
+      <div class="checkbox-item">
+        <input type="checkbox" value="Prevoz kabastih stvari" (change)="toggleService('Prevoz kabastih stvari')" [checked]="selectedOptions.includes('Prevoz kabastih stvari')" />
+        <label>Prevoz kabastih stvari</label>
+        <div *ngIf="selectedOptions.includes('Prevoz kabastih stvari')">
+          <textarea placeholder="Unesite šta se tačno prevozi" [(ngModel)]="transportDescription"></textarea>
+          <input type="file" (change)="uploadImages($event)" />
+        </div>
+      </div>
+      <div>
+        <label>Broj kilometara:</label>
+        <input type="number" [(ngModel)]="numberOfKilometers" />
+      </div>
+      <div>
+        <label>Putarina:</label>
+        <label><input type="radio" name="putarina" value="Da" [(ngModel)]="tollRoad" /> Da</label>
+        <label><input type="radio" name="putarina" value="Ne" [(ngModel)]="tollRoad" /> Ne</label>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let service of options">
+    <div class="checkbox-item" *ngIf="service !== 'Selidba' && service !== 'Namestaj' && service !== 'Pokucstvo' && service !== 'Prevoz' && service !== 'Prevoz kabastih stvari'">
+      <input type="checkbox" [value]="service" (change)="toggleService(service)" [checked]="selectedOptions.includes(service)" />
+      <label>{{ service }}</label>
+    </div>
+  </ng-container>
+</div>
+-->
+
+<!---
+<label>Usluge:</label>
+<div class="checkbox-grid">
+  <div class="checkbox-item">
+    <input type="checkbox" value="Selidba" (change)="toggleService('Selidba')" [checked]="selectedOptions.includes('Selidba')" />
+    <label>Selidba</label>
+  </div>
+  <div *ngIf="selectedOptions.includes('Selidba')">
+    <div class="checkbox-item">
+      <input type="checkbox" value="Namestaj" (change)="toggleService('Namestaj')" [checked]="selectedOptions.includes('Namestaj')" />
+      <label>Namestaj</label>
+      <div *ngIf="selectedOptions.includes('Namestaj')">
+        <textarea placeholder="Unesite šta treba seliti od nameštaja" [(ngModel)]="furnitureDescription"></textarea>
+        <input type="file" (change)="uploadImages($event)" />
+      </div>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" value="Pokucstvo" (change)="toggleService('Pokucstvo')" [checked]="selectedOptions.includes('Pokucstvo')" />
+      <label>Pokucstvo</label>
+      <div *ngIf="selectedOptions.includes('Pokucstvo')">
+        <div>
+          <label>Broj kutija:</label>
+          <input type="number" [(ngModel)]="numberOfBoxes" />
+        </div>
+        <div>
+          <label>Broj kesa:</label>
+          <input type="number" [(ngModel)]="numberOfBags" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Prevoz" (change)="toggleService('Prevoz')" [checked]="selectedOptions.includes('Prevoz')" />
+    <label>Prevoz</label>
+    <div *ngIf="selectedOptions.includes('Prevoz')">
+      <div class="checkbox-item">
+        <input type="checkbox" value="Prevoz kabastih stvari" (change)="toggleService('Prevoz kabastih stvari')" [checked]="selectedOptions.includes('Prevoz kabastih stvari')" />
+        <label>Prevoz kabastih stvari</label>
+        <div *ngIf="selectedOptions.includes('Prevoz kabastih stvari')">
+          <textarea placeholder="Unesite šta se tačno prevozi" [(ngModel)]="transportDescription"></textarea>
+          <input type="file" (change)="uploadImages($event)" />
+        </div>
+      </div>
+      <div>
+        <label>Broj kilometara:</label>
+        <input type="number" [(ngModel)]="numberOfKilometers" />
+      </div>
+      <div>
+        <label>Putarina:</label>
+        <label><input type="radio" name="putarina" value="Da" [(ngModel)]="tollRoad" /> Da</label>
+        <label><input type="radio" name="putarina" value="Ne" [(ngModel)]="tollRoad" /> Ne</label>
+      </div>
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Zastita" (change)="toggleService('Zastita')" [checked]="selectedOptions.includes('Zastita')" />
+    <label>Zaštita</label>
+    <div *ngIf="selectedOptions.includes('Zastita')">
+      <textarea placeholder="Unesite šta treba da se zaštiti" [(ngModel)]="protectionDescription"></textarea>
+      <input type="file" (change)="uploadImages($event)" />
+    </div>
+  </div>
+  <ng-container *ngFor="let service of options">
+    <div class="checkbox-item" *ngIf="service !== 'Selidba' && service !== 'Namestaj' && service !== 'Pokucstvo' && service !== 'Prevoz' && service !== 'Prevoz kabastih stvari' && service !== 'Zastita'">
+      <input type="checkbox" [value]="service" (change)="toggleService(service)" [checked]="selectedOptions.includes(service)" />
+      <label>{{ service }}</label>
+    </div>
+  </ng-container>
+</div>
+-->
+<!---
+<label>Usluge:</label>
+<div class="checkbox-grid">
+  <div class="checkbox-item">
+    <input type="checkbox" value="Selidba" (change)="toggleService('Selidba')" [checked]="selectedOptions.includes('Selidba')" />
+    <label>Selidba</label>
+  </div>
+  <div *ngIf="selectedOptions.includes('Selidba')">
+    <div class="checkbox-item">
+      <input type="checkbox" value="Namestaj" (change)="toggleService('Namestaj')" [checked]="selectedOptions.includes('Namestaj')" />
+      <label>Namestaj</label>
+      <div *ngIf="selectedOptions.includes('Namestaj')">
+        <textarea placeholder="Unesite šta treba seliti od nameštaja" [(ngModel)]="furnitureDescription"></textarea>
+        <input type="file" (change)="uploadImages($event)" />
+      </div>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" value="Pokucstvo" (change)="toggleService('Pokucstvo')" [checked]="selectedOptions.includes('Pokucstvo')" />
+      <label>Pokucstvo</label>
+      <div *ngIf="selectedOptions.includes('Pokucstvo')">
+        <div>
+          <label>Broj kutija:</label>
+          <input type="number" [(ngModel)]="numberOfBoxes" />
+        </div>
+        <div>
+          <label>Broj kesa:</label>
+          <input type="number" [(ngModel)]="numberOfBags" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Prevoz" (change)="toggleService('Prevoz')" [checked]="selectedOptions.includes('Prevoz')" />
+    <label>Prevoz</label>
+    <div *ngIf="selectedOptions.includes('Prevoz')">
+      <div class="checkbox-item">
+        <input type="checkbox" value="Prevoz kabastih stvari" (change)="toggleService('Prevoz kabastih stvari')" [checked]="selectedOptions.includes('Prevoz kabastih stvari')" />
+        <label>Prevoz kabastih stvari</label>
+        <div *ngIf="selectedOptions.includes('Prevoz kabastih stvari')">
+          <textarea placeholder="Unesite šta se tačno prevozi" [(ngModel)]="transportDescription"></textarea>
+          <input type="file" (change)="uploadImages($event)" />
+        </div>
+      </div>
+      <div>
+        <label>Broj kilometara:</label>
+        <input type="number" [(ngModel)]="numberOfKilometers" />
+      </div>
+      <div>
+        <label>Putarina:</label>
+        <label><input type="radio" name="putarina" value="Da" [(ngModel)]="tollRoad" /> Da</label>
+        <label><input type="radio" name="putarina" value="Ne" [(ngModel)]="tollRoad" /> Ne</label>
+      </div>
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Zastita" (change)="toggleService('Zastita')" [checked]="selectedOptions.includes('Zastita')" />
+    <label>Zaštita</label>
+    <div *ngIf="selectedOptions.includes('Zastita')">
+      <textarea placeholder="Unesite šta treba da se zaštiti" [(ngModel)]="protectionDescription"></textarea>
+      <input type="file" (change)="uploadImages($event)" />
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Pakovanje" (change)="toggleService('Pakovanje')" [checked]="selectedOptions.includes('Pakovanje')" />
+    <label>Pakovanje</label>
+    <div *ngIf="selectedOptions.includes('Pakovanje')">
+      <div class="checkbox-item">
+        <input type="checkbox" value="Kutije" (change)="toggleService('Kutije')" [checked]="selectedOptions.includes('Kutije')" />
+        <label>Kutije</label>
+        <div *ngIf="selectedOptions.includes('Kutije')">
+          <label>Broj kutija:</label>
+          <input type="number" [(ngModel)]="numberOfBoxes" />
+        </div>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" value="Dzakovi" (change)="toggleService('Dzakovi')" [checked]="selectedOptions.includes('Dzakovi')" />
+        <label>Džakovi</label>
+        <div *ngIf="selectedOptions.includes('Dzakovi')">
+          <label>Broj džakova:</label>
+          <input type="number" [(ngModel)]="numberOfBags" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let service of options">
+    <div class="checkbox-item" *ngIf="service !== 'Selidba' && service !== 'Namestaj' && service !== 'Pokucstvo' && service !== 'Prevoz' && service !== 'Prevoz kabastih stvari' && service !== 'Zastita' && service !== 'Pakovanje'">
+      <input type="checkbox" [value]="service" (change)="toggleService(service)" [checked]="selectedOptions.includes(service)" />
+      <label>{{ service }}</label>
+    </div>
+  </ng-container>
+</div>
+-->
+
+<label>Usluge:</label>
+<div class="checkbox-grid">
+  <div class="checkbox-item">
+    <input type="checkbox" value="Selidba" (change)="toggleService('Selidba')" [checked]="selectedOptions.includes('Selidba')" />
+    <label>Selidba</label>
+  </div>
+  <div *ngIf="selectedOptions.includes('Selidba')">
+    <div class="checkbox-item">
+      <input type="checkbox" value="Namestaj" (change)="toggleService('Namestaj')" [checked]="selectedOptions.includes('Namestaj')" />
+      <label>Namestaj</label>
+      <div *ngIf="selectedOptions.includes('Namestaj')">
+        <textarea placeholder="Unesite šta treba seliti od nameštaja" [(ngModel)]="furnitureDescription"></textarea>
+        <input type="file" (change)="uploadImages($event)" />
+      </div>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" value="Pokucstvo" (change)="toggleService('Pokucstvo')" [checked]="selectedOptions.includes('Pokucstvo')" />
+      <label>Pokucstvo</label>
+      <div *ngIf="selectedOptions.includes('Pokucstvo')">
+        <div>
+          <label>Broj kutija:</label>
+          <input type="number" [(ngModel)]="numberOfBoxes" />
+        </div>
+        <div>
+          <label>Broj kesa:</label>
+          <input type="number" [(ngModel)]="numberOfBags" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Prevoz" (change)="toggleService('Prevoz')" [checked]="selectedOptions.includes('Prevoz')" />
+    <label>Prevoz</label>
+    <div *ngIf="selectedOptions.includes('Prevoz')">
+      <div class="checkbox-item">
+        <input type="checkbox" value="Prevoz kabastih stvari" (change)="toggleService('Prevoz kabastih stvari')" [checked]="selectedOptions.includes('Prevoz kabastih stvari')" />
+        <label>Prevoz kabastih stvari</label>
+        <div *ngIf="selectedOptions.includes('Prevoz kabastih stvari')">
+          <textarea placeholder="Unesite šta se tačno prevozi" [(ngModel)]="transportDescription"></textarea>
+          <input type="file" (change)="uploadImages($event)" />
+        </div>
+      </div>
+      <div>
+        <label>Broj kilometara:</label>
+        <input type="number" [(ngModel)]="numberOfKilometers" />
+      </div>
+      <div>
+        <label>Putarina:</label>
+        <label><input type="radio" name="putarina" value="Da" [(ngModel)]="tollRoad" /> Da</label>
+        <label><input type="radio" name="putarina" value="Ne" [(ngModel)]="tollRoad" /> Ne</label>
+      </div>
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Zastita" (change)="toggleService('Zastita')" [checked]="selectedOptions.includes('Zastita')" />
+    <label>Zaštita</label>
+    <div *ngIf="selectedOptions.includes('Zastita')">
+      <textarea placeholder="Unesite šta treba da se zaštiti" [(ngModel)]="protectionDescription"></textarea>
+      <input type="file" (change)="uploadImages($event)" />
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Pakovanje" (change)="toggleService('Pakovanje')" [checked]="selectedOptions.includes('Pakovanje')" />
+    <label>Pakovanje</label>
+    <div *ngIf="selectedOptions.includes('Pakovanje')">
+      <div class="checkbox-item">
+        <input type="checkbox" value="Kutije" (change)="toggleService('Kutije')" [checked]="selectedOptions.includes('Kutije')" />
+        <label>Kutije</label>
+        <div *ngIf="selectedOptions.includes('Kutije')">
+          <label>Broj kutija:</label>
+          <input type="number" [(ngModel)]="numberOfBoxes" />
+        </div>
+      </div>
+      <div class="checkbox-item">
+        <input type="checkbox" value="Dzakovi" (change)="toggleService('Dzakovi')" [checked]="selectedOptions.includes('Dzakovi')" />
+        <label>Džakovi</label>
+        <div *ngIf="selectedOptions.includes('Dzakovi')">
+          <label>Broj džakova:</label>
+          <input type="number" [(ngModel)]="numberOfBags" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="checkbox-item">
+    <input type="checkbox" value="Odnosenje starih stvari" (change)="toggleService('Odnosenje starih stvari')" [checked]="selectedOptions.includes('Odnosenje starih stvari')" />
+    <label>Odnosenje starih stvari</label>
+    <div *ngIf="selectedOptions.includes('Odnosenje starih stvari')">
+      <label><input type="radio" name="demontaza" value="Da" [(ngModel)]="demontaza" /> Potrebna demontaža</label>
+      <label><input type="radio" name="demontaza" value="Ne" [(ngModel)]="demontaza" /> Nije potrebna demontaža</label>
+    </div>
+  </div>
+  <ng-container *ngFor="let service of options">
+    <div class="checkbox-item" *ngIf="service !== 'Selidba' && service !== 'Namestaj' && service !== 'Pokucstvo' && service !== 'Prevoz' && service !== 'Prevoz kabastih stvari' && service !== 'Zastita' && service !== 'Pakovanje' && service !== 'Odnosenje starih stvari'">
+      <input type="checkbox" [value]="service" (change)="toggleService(service)" [checked]="selectedOptions.includes(service)" />
+      <label>{{ service }}</label>
+    </div>
+  </ng-container>
+</div>
+
+    <div>
+      <label>Šta sve ima da se preveze:</label>
+      <textarea formControlName="itemsToMove" rows="4" placeholder="Unesite detalje"></textarea>
+    </div>
+
+    <div>
+      <label>Slike za prevoz:</label>
+      <input type="file" (change)="uploadImages($event)" multiple />
+    </div>
+
+    <div>
+      <label>Broj kutija:</label>
+      <input type="number" formControlName="optionQuantities" placeholder="Broj kutija" />
+    </div>
+
+    <div>
+      <label>Zaštita (Strec folija ili pucketava folija):</label>
+      <input type="text" formControlName="protectionItems" placeholder="Unesite detalje" />
+    </div>
+
+    <div>
+      <label>Prevoz kabastih stvari:</label>
+      <input type="text" formControlName="bulkyItems" placeholder="Unesite detalje" />
+    </div>
+
+    <div>
+      <label>Kilometraža:</label>
+      <input type="number" formControlName="kilometers" placeholder="Unesite kilometražu" />
+    </div>
+
+    <div>
+      <label>Putarina:</label>
+      <input type="checkbox" formControlName="toll" />
+    </div>
+
+    <div>
+      <label>Pakovanje:</label>
+      <div class="checkbox-grid">
+        <div class="checkbox-item">
+          <input *ngIf="form.get('packingOptions')?.get('boxes') !== null" type="checkbox"
+            formControlName="packingOptions.boxes" />
+          <label>Kutije</label>
+        </div>
+        <div class="checkbox-item">
+          <input *ngIf="form.get('packingOptions')?.get('bags') !== null" type="checkbox"
+            formControlName="packingOptions.bags" />
+          <label>Džakovi</label>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div>
+      <label>Broj kutija ili džakova:</label>
+      <input type="number" formControlName="packingQuantity" />
+    </div>
+
+    <div>
+      <label>Da li je potrebna demontaža:</label>
+      <input type="checkbox" formControlName="disassemblyRequired" />
+    </div>
+
+    <div *ngIf="form.controls['disassemblyRequired'].value == 'Da'">
+      <label>Stvari za demontažu:</label>
+      <input type="text" formControlName="furnitureToDisassemble" placeholder="Unesite detalje" />
+    </div>
+
+    <div *ngIf="form.controls['disassemblyRequired'].value == 'Da'">
+      <label>Broj komada za demontažu:</label>
+      <input type="number" formControlName="disassemblyQuantity" />
+    </div>
+
+    <div>
+      <label>Način plaćanja kurirske službe:</label>
+      <input type="text" formControlName="courierPayment" placeholder="Unesite detalje" />
+    </div>
+
+    <div>
+      <label>Početna tačka:</label>
+      <input type="text" formControlName="startingPoint" required />
+    </div>
+
+    <div>
+      <label>Krajnja tačka:</label>
+      <input type="text" formControlName="endPoint" required />
+    </div>
+    <!--
+      <div class="input-grid">
+        <input type="text" formControlName="additionalPoints" placeholder="Dodatna tačka" />
+        <button class="add-button" type="button" (click)="addStop()" *ngIf="form.get('additionalPoints')?.value.length < 3">
+          Dodaj tačku
+        </button>
+        <input type="text" formControlName="additionalPoints" placeholder="Dodatna tačka" />
+      </div>
+    -->
+    <div class="input-grid">
+      <input type="text" formControlName="additionalPoints" placeholder="Dodatna tačka" />
+      <!--
+        <button class="add-button" type="button" (click)="addStop()" *ngIf="form.controls.additionalPoints.controls.length  < 3">
+          Dodaj tačku
+        </button>
+    -->
+      <button class="add-button" type="button" (click)="addStop()"
+        *ngIf="form.get('additionalPoints')?.value.length < 3">
+        Dodaj tačku
+      </button>
+      <input type="text" formControlName="additionalPoints" placeholder="Dodatna tačka"
+        *ngFor="let point of form.get('additionalPoints')?.value">
+    </div>
+
+    <div class="form-group">
+      <input type="radio" id="hasLift" value="Ima Lift" formControlName="liftAvailable" />
+      <label for="hasLift">Ima lift</label>
+
+      <input type="radio" id="noLift" value="Nema Lift" formControlName="liftAvailable" />
+      <label for="noLift">Nema lift</label>
+    </div>
+
+    <div *ngIf="form.controls['liftAvailable'].value === 'Ima Lift'">
+      <div>
+        <label>Sprat na kojem se nalazi lift:</label>
+        <input type="number" formControlName="liftFloor" />
+      </div>
+      <div>
+        <label>Tip lifta:</label>
+        <input type="text" formControlName="liftType" />
+      </div>
+    </div>
+
+    <button class="submit-button" [disabled]="!form.valid" (click)="submitForm()">Pošalji upit</button>
+  </form>
 </section>
