@@ -319,7 +319,8 @@ export class FormComponent implements OnInit {
 }
 */
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormArray } from '@angular/forms';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import * as emailjs from 'emailjs-com';
 
 @Component({
@@ -335,18 +336,43 @@ export class FormComponent implements OnInit {
   //selectedOptions: any;
 
   options = [
-    //'Selidba',
-    //'Prevoz',
-    'Montaža/Demontaža',
-    //'Pakovanje',
-    //'Zaštita',
     'Selidba ključ u ruke',
-    'Kurirska usluga',
     'Sa našim radnicima',
     'Prevoz kabastih stvari',
-    'Odnošenje starih stvari'
   ];
+  montazaItemsOptions: string[] = [
+    'Bračni krevet',
+    'Radni sto',
+    'Trpezarijski sto',
+    'Kauč',
+    'Jednokrilni ormar',
+    'Dvokrilni ormar',
+    'Trokrilni ormar',
+    'Luster'
+  ];
+  demontazaItemsOptions: string[] = [
+    'Bračni krevet',
+    'Radni sto',
+    'Trpezarijski sto',
+    'Kauč',
+    'Jednokrilni ormar',
+    'Dvokrilni ormar',
+    'Trokrilni ormar',
+    'Luster'
+  ];
+  selectedMontazaItems: string[] = [];
+  selectedDemontazaItems: string[] = [];
+  numberOfElements: number = 0;
 
+  dropdownSettings: IDropdownSettings = {
+    singleSelection: false,
+    idField: 'item',
+    textField: 'item',
+    selectAllText: 'Selektuj sve',
+    unSelectAllText: 'Deselektuj sve',
+    itemsShowLimit: 3,
+    allowSearchFilter: false
+  };
   selectedOptions: string[] = [];
   furnitureService: string = 'Nameštaj';
   householdService: string = 'Pokućstvo';
@@ -359,6 +385,13 @@ numberOfBags: any;
 numberOfBoxes: any;
 protectionDescription: any;
 demontaza: any;
+numberOfElementsMontaza: any;
+montageItems: any;
+numberOfElementsDemontaza: any;
+paymentMethod: any;
+tipObjekta: any;
+liftOption: any;
+brojSpratova: any;
 
   constructor(private formBuilder: FormBuilder) { }
 
